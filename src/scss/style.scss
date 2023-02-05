@@ -1,0 +1,441 @@
+@import "_fonts";
+@import "_reset";
+@import "_global";
+
+@import "_header";
+
+.about {
+  @include adaptive-value("padding-top", 60, 30, 1);
+  @include adaptive-value("padding-bottom", 60, 30, 1);
+
+  &__title {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-bottom: 92px;
+    @include adaptive-value("margin-bottom", 92, 40, 1);
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__col {
+    width: 55%;
+
+    &:nth-child(1) {
+      width: 45%;
+      @include adaptive-value("margin-right", 70, 35, 1);
+    }
+  }
+
+  &__col-text {
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.1875px;
+    margin-bottom: 30px;
+    font-weight: 700;
+
+
+    a {
+      color: $mainColor;
+      transition: all .3s ease;
+      position: relative;
+
+      &::after {
+        width: 0;
+        height: 1px;
+        content: "";
+        background: transparent;
+        position: absolute;
+        bottom: 5px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        transition: all .3s ease;
+      }
+
+      &:focus {
+        opacity: 0.8;
+
+        &::after {
+          background: $mainColor;
+          width: 95%;
+        }
+      }
+
+      @media (min-width: 768px) {
+        &:hover {
+          opacity: 0.8;
+
+          &::after {
+            width: 95%;
+            background: $mainColor;
+          }
+        }
+      }
+    }
+  }
+
+  &__col-suptext {
+    font-size: 13px;
+    line-height: 23px;
+    letter-spacing: 0.1875px;
+  }
+
+  &__list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__item {
+    position: relative;
+    width: 140px;
+    height: 224px;
+    padding: 15px;
+
+    &+li {
+      @include adaptive-value("margin-left", 20, 10, 1);
+    }
+  }
+
+  &__item-text {
+    display: inline-block;
+    font-weight: 700;
+    color: #fff;
+    width: 65px;
+    letter-spacing: 0.1875px;
+    @include adaptive-value("font-size", 24, 16, 1);
+    @include adaptive-value("line-height", 29, 20, 1);
+  }
+
+  &__item-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  @media (max-width: 768px) {
+    &__inner {
+      display: flex;
+      // justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &__col {
+      width: 100%;
+
+      &+div {
+        margin-top: 30px;
+      }
+
+      &:nth-child(1) {
+        width: 100%;
+      }
+    }
+
+    &__list {
+      justify-content: space-around;
+    }
+  }
+
+  @media (max-width: 425px) {
+    &__item {
+      width: 180px;
+      height: 250px;
+      @include adaptive-value("height", 250, 150, 1)
+    }
+  }
+}
+
+.services {
+  @include adaptive-value("padding-top", 60, 30, 1);
+  @include adaptive-value("padding-bottom", 60, 30, 1);
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    @include adaptive-value("margin-bottom", 75, 20, 1);
+  }
+
+  &__title {
+    width: 35%;
+
+    &::after {
+      left: 0;
+      right: unset;
+      bottom: 0px;
+    }
+  }
+
+  &__top-box {
+    width: 65%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__text {
+    font-size: 11px;
+    line-height: 19px;
+    letter-spacing: 0.2px;
+    @include adaptive-value("margin-right", 30, 20, 1);
+  }
+
+  &__btn {
+    max-width: 150px;
+    width: 100%;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__item {
+    max-width: 300px;
+    width: 100%;
+    padding: 40px 25px;
+    @include adaptive-value("padding-top", 40, 20, 1);
+    @include adaptive-value("padding-bottom", 40, 20, 1);
+    @include adaptive-value("padding-left", 25, 10, 1);
+    @include adaptive-value("padding-right", 25, 10, 1);
+  }
+
+  &__img {
+    @include adaptive-value("margin-bottom", 25, 10, 1);
+  }
+
+  &__item-title {
+    margin-bottom: 13px;
+    @include adaptive-value("line-height", 24, 14, 1);
+    @include adaptive-value("font-size", 16, 14, 1);
+    letter-spacing: 0.426667px;
+    font-weight: 600;
+  }
+
+  &__item-text {
+    font-size: 13px;
+    line-height: 23px;
+    @include adaptive-value("line-height", 23, 16, 1);
+    letter-spacing: 0.1875px;
+  }
+
+  @media (max-width: 768px) {
+    &__top {
+      flex-direction: column;
+    }
+
+    &__top-box {
+      justify-content: space-between;
+      width: unset;
+      align-items: flex-start;
+    }
+
+    &__title {
+      @include adaptive-value("margin-bottom", 30, 15, 1);
+    }
+
+    &__text {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__list {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    &__item {
+      max-width: unset;
+    }
+
+    &__title {
+      width: unset;
+
+      &::after {
+        bottom: -10px;
+      }
+    }
+  }
+
+  @media (max-width: 425px) {
+    &__top-box {
+      flex-direction: column;
+    }
+
+    &__text {
+      width: unset;
+      margin-right: 0;
+      @include adaptive-value("margin-bottom", 30, 15, 1);
+    }
+  }
+}
+
+.get-in-touch {
+  &__top {
+    @include adaptive-value("padding-top", 60, 30, 1);
+    @include adaptive-value("padding-bottom", 60, 30, 1);
+    margin-top: -60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 500px;
+    position: relative;
+  }
+
+  &__img-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  &__title {
+    margin-bottom: 35px;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: 0.15px;
+    max-width: 350px;
+    text-align: center;
+
+    @include adaptive-value("font-size", 30, 20, 1);
+    @include adaptive-value("line-height", 36, 28, 1);
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__btn {
+    display: block;
+    max-width: 150px;
+    margin: 0 auto;
+    padding: 11px 0;
+  }
+
+  &__bottom {
+    background: #171819;
+    padding: 30px 0;
+    @include adaptive-value("padding-bottom", 30, 20, 1);
+    @include adaptive-value("padding-top", 30, 20, 1);
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__form-text {
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: 0.846154px;
+    color: #fff;
+    @include adaptive-value("font-size", 22, 16, 1);
+    @include adaptive-value("line-height", 26, 20, 1);
+  }
+
+  &__form-box {
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+  }
+
+  &__input {
+    display: inline-block;
+    background: #fff;
+    border: none;
+    padding: 10px 16px;
+    outline: none;
+    border: 3px solid transparent;
+    transition: all .3s ease;
+    width: 100%;
+    max-width: 250px;
+    @include adaptive-value("height", 50, 40, 1);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.07px;
+    color: $textColor;
+
+    &:focus {
+      border: 3px solid $mainColor;
+    }
+
+    &::placeholder {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      letter-spacing: 0.07px;
+      color: $textColor;
+    }
+  }
+
+  &__form-btn {
+    max-width: 150px;
+    width: 100%;
+    border: 3px solid $mainColor;
+    @include adaptive-value("height", 50, 40, 1);
+
+    &::after {
+      display: none;
+    }
+
+    &:focus {
+      background: transparent;
+      color: #fff;
+    }
+
+    @media (min-width: 768px) {
+      &:hover {
+        background: transparent;
+        color: #fff;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__form {
+      flex-direction: column;
+    }
+
+    &__form-text {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 425px) {
+
+    &__form-box {
+      flex-direction: column;
+    }
+
+    &__input {
+      width: 100%;
+      max-width: unset;
+      margin-bottom: 20px;
+      padding-top: 9px;
+    }
+
+    &__form-btn {
+      max-width: unset;
+      width: 100%;
+      padding-top: 9px;
+    }
+  }
+}
+
+@import "_footer";

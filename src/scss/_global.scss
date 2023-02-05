@@ -1,0 +1,329 @@
+// Переменные /////////////////////////////////////////////////////////////////////////////////////
+
+$maxWidth: 1440;
+$maxWidthContainer: 940;
+
+$mainColor: #00A4E5;
+$textColor: #48555B;
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Миксины ////////////////////////////////////////////////////////////////////////////////////////
+
+@mixin adaptive-value ($property, $startSize, $minSize, $type) {
+  $addSize: $startSize - $minSize;
+
+  @if $type==1 {
+    // Толко если меньше контейнера
+    #{$property}: $startSize + px;
+
+    @media (max-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
+    }
+  }
+
+  @else if $type==2 {
+    // Только если больше контейнера
+    #{$property}: $startSize + px;
+
+    @media (min-width: #{$maxWidthContainer + px}) {
+      #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+    }
+  }
+
+  @else {
+    // Всегда 
+    #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth - 320}));
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Шаблоны ////////////////////////////////////////////////////////////////////////////////////////
+%bebasNeue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Глобальные настройки ///////////////////////////////////////////////////////////////////////////
+
+html {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
+a {
+  transition: all .3s ease;
+  position: relative;
+
+  &::after {
+    transition: all .3s ease;
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: transparent;
+  }
+
+  &:focus {
+    color: $mainColor;
+
+    &::after {
+      width: 95%;
+      background: $mainColor;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      color: $mainColor;
+
+      &::after {
+        width: 95%;
+        background: $mainColor;
+      }
+    }
+  }
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  height: 100%;
+  color: $textColor;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+input {
+  background: no-clip;
+  background: transparent;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-block;
+  padding: 0;
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Блоки //////////////////////////////////////////////////////////////////////////////////////////
+
+.container {
+  max-width: $maxWidthContainer + px;
+  padding: 0 15px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.visually-hidden:not(:focus):not(:active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  bottom: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+.page {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.lock {
+  overflow: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s ease;
+  z-index: 50;
+  cursor: pointer;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  z-index: -1;
+
+  img {
+    display: none;
+  }
+}
+
+.logo {
+  transition: all .3s ease;
+  display: block;
+  position: relative;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    background: transparent;
+    transition: all .3s ease;
+  }
+
+  path {
+    transition: all .3s ease;
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      &::after {
+        content: "";
+        width: 90%;
+        background: $mainColor;
+      }
+
+      path {
+        &:nth-child(1) {
+          fill: $mainColor;
+        }
+
+        &:nth-child(2) {
+          fill: #fff;
+        }
+      }
+    }
+  }
+
+  &:focus {
+    &::after {
+      content: "";
+      width: 90%;
+      background: $mainColor;
+    }
+
+    path {
+      &:nth-child(1) {
+        fill: $mainColor;
+      }
+
+      &:nth-child(2) {
+        fill: #fff;
+      }
+    }
+  }
+
+
+}
+
+.title {
+  font-weight: 700;
+  letter-spacing: 2.30625px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  @include adaptive-value("line-height", 21, 18, 1);
+  @include adaptive-value("font-size", 18, 16, 1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: $mainColor;
+  }
+}
+
+.btn {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 15px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #FFFFFF;
+  display: inline-block;
+  padding: 11px 0px;
+  background: $mainColor;
+  transition: all .5s ease;
+  border: 3px solid $mainColor;
+
+  &:focus {
+    background: transparent;
+    color: $mainColor;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  @media (min-width: 768px) {
+    &:hover {
+      background: transparent;
+      color: $mainColor;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
