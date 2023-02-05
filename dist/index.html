@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.min.css?_v=20230205145212">
+  <link rel="stylesheet" href="css/style.min.css?_v=20230205164751">
 </head>
 
 <body>
@@ -99,7 +99,8 @@
             <div class="about__inner">
               <div class="about__col">
                 <p class="about__col-text">
-                  Founded in 2011 by John Mathew Smith, <a href="#header" data-nav>Konstruct</a> has become the number one construction
+                  Founded in 2011 by John Mathew Smith, <a href="#header" data-nav>Konstruct</a> has become the number
+                  one construction
                   management firm
                 </p>
                 <p class="about__col-suptext">
@@ -324,16 +325,16 @@
           <h3 class="footer__top-col-title">
             CONTACT US
           </h3>
-          <a class="footer__top-info-link" href="#">
+          <a class="footer__top-info-link" href="#" data-modal-button="modal-1">
             213 Baker Street
             Oriel City Kounty
             7000 KNW,
             Kountry Name
           </a>
-          <a class="footer__top-info-link" href="#">
+          <a class="footer__top-info-link" href="tel:239942334022">
             +23 994 233 4022
           </a>
-          <a class="footer__top-info-link" href="#">
+          <a class="footer__top-info-link" href="mailto:info@konstruct.com">
             info@konstruct.com
           </a>
         </div>
@@ -392,8 +393,26 @@
   </div>
 </footer>
   </div>
+  <div class="modal visibility-hidden" id="modal-1" data-modal>
+    <div class="modal__window">
+      <a class="modal__close" href="#" data-modal-close>
+        <span class="visually-hidden">
+          Close modal window
+        </span>
+      </a>
+      <h2 class="modal__title title">
+        Map
+      </h2>
+      <div class="modal__inner">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.471286220329!2d-0.1603151845707783!3d51.52291521739017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761aced6a29ccf%3A0x167eebf9aa86b270!2zMjExLTIxMyBCYWtlciBTdCwgTG9uZG9uIE5XMSA2VVksINCS0LXQu9C40LrQvtCx0YDQuNGC0LDQvdC40Y8!5e0!3m2!1sru!2sua!4v1675606881107!5m2!1sru!2sua"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
   <div class="overlay"></div>
-  <script type="module" src="js/app.min.js?_v=20230205145212"></script>
+  <script type="module" src="js/app.min.js?_v=20230205164751"></script>
 </body>
 
 </html>

@@ -15,7 +15,8 @@
             <div class="about__inner">
               <div class="about__col">
                 <p class="about__col-text">
-                  Founded in 2011 by John Mathew Smith, <a href="#header" data-nav>Konstruct</a> has become the number one construction
+                  Founded in 2011 by John Mathew Smith, <a href="#header" data-nav>Konstruct</a> has become the number
+                  one construction
                   management firm
                 </p>
                 <p class="about__col-suptext">
@@ -147,6 +148,24 @@
       </section>
     </main>
     @@include('html/footer.html', {})
+  </div>
+  <div class="modal visibility-hidden" id="modal-1" data-modal>
+    <div class="modal__window">
+      <a class="modal__close" href="#" data-modal-close>
+        <span class="visually-hidden">
+          Close modal window
+        </span>
+      </a>
+      <h2 class="modal__title title">
+        Map
+      </h2>
+      <div class="modal__inner">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.471286220329!2d-0.1603151845707783!3d51.52291521739017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761aced6a29ccf%3A0x167eebf9aa86b270!2zMjExLTIxMyBCYWtlciBTdCwgTG9uZG9uIE5XMSA2VVksINCS0LXQu9C40LrQvtCx0YDQuNGC0LDQvdC40Y8!5e0!3m2!1sru!2sua!4v1675606881107!5m2!1sru!2sua"
+          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
   </div>
   <div class="overlay"></div>
   <script type="module" src="js/app.min.js"></script>

@@ -167,6 +167,11 @@ input[type="radio"].visually-hidden {
   display: none;
 }
 
+.visibility-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .lock {
   overflow: hidden;
 }

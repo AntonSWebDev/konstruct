@@ -41,6 +41,7 @@
     "gulp-webp-html-nosvg": "^1.1.1",
     "gulp-webpcss": "^1.1.1",
     "gulp-zip": "^5.1.0",
+    "jbox": "^1.3.3",
     "jquery": "^3.6.3",
     "mixitup": "^3.3.1",
     "owl.carousel": "^2.3.4",
